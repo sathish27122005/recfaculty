@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Search | Rajalakshmi Engineering College</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Faculty Search</h1>
+            <p>Discover the experts at Rajalakshmi Engineering College</p>
+        </header>
+
+        <section class="search-section glass-panel">
+            <form id="search-form" autocomplete="off">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="name-input" placeholder="Search by name (e.g. Vani)..." />
+                </div>
+                
+                <div class="input-group select-group">
+                    <i class="fa-solid fa-building"></i>
+                    <select id="dept-input">
+                        <option value="cse">Computer Science & Engineering (CSE)</option>
+                        <option value="it">Information Technology (IT)</option>
+                        <option value="ece">Electronics & Communication (ECE)</option>
+                        <option value="eee">Electrical & Electronics (EEE)</option>
+                        <option value="mech">Mechanical Engineering (MECH)</option>
+                        <option value="civil">Civil Engineering (CIVIL)</option>
+                        <option value="aids">AI & Data Science (AIDS)</option>
+                        <option value="aero">Aeronautical Engineering (AERO)</option>
+                        <option value="auto">Automobile Engineering (AUTO)</option>
+                        <option value="bme">Biomedical Engineering (BME)</option>
+                        <option value="biotech">Biotechnology (BIOTECH)</option>
+                        <option value="chem">Chemical Engineering (CHEM)</option>
+                        <option value="csbs">Computer Science and Business Systems (CSBS)</option>
+                        <option value="csd">Computer Science and Design (CSD)</option>
+                        <option value="ft">Food Technology (FT)</option>
+                        <option value="mct">Mechatronics Engineering (MCT)</option>
+                        <option value="ra">Robotics and Automation (RA)</option>
+                        <option value="aiml">AI & Machine Learning (AIML)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" id="search-btn">Search</button>
+            </form>
+        </section>
+
+        <section class="results-section">
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Fetching faculty data...</p>
+            </div>
+            
+            <div id="no-results" class="hidden glass-panel">
+                <i class="fa-solid fa-ghost fa-3x"></i>
+                <h2>No Results Found</h2>
+                <p>Try adjusting your search criteria or changing the department.</p>
+            </div>
+            
+            <div id="error-message" class="hidden glass-panel error-panel">
+                <i class="fa-solid fa-triangle-exclamation fa-3x"></i>
+                <h2>Oops! Something went wrong</h2>
+                <p id="error-text">Failed to fetch data.</p>
+            </div>
+
+            <div id="faculty-grid" class="grid">
+                <!-- Faculty cards will be dynamically injected here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Aadhi AI Assistant Widget -->
+    <div id="aadhi-chat-widget" class="chat-widget hidden glass-panel">
+        <div class="chat-header">
+            <div class="chat-title">
+                <div class="ai-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <h3>Aadhi AI</h3>
+                    <span class="status">Online</span>
+                </div>
+            </div>
+            <button id="close-chat" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message ai-message">
+                <div class="message-content">Hello! I'm Aadhi, your AI assistant. How can I help you find faculty details today?</div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <form id="chat-form">
+                <input type="text" id="chat-input" placeholder="Ask Aadhi something..." autocomplete="off">
+                <button type="submit" id="send-btn" class="icon-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button id="aadhi-fab" class="fab-btn">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    <!-- Achievements Modal -->
+    <div id="achievements-modal" class="modal hidden">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2 id="modal-faculty-name">Faculty Name</h2>
+                <button id="close-modal-btn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <h3><i class="fa-solid fa-trophy"></i> Achievements</h3>
+                <ul id="achievements-list" class="achievements-list">
+                    <!-- Achievements injected here -->
+                </ul>
+                <div id="no-achievements" class="hidden no-achievements">
+                    <p>No major achievements listed for this faculty member yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
